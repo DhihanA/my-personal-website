@@ -1,0 +1,259 @@
+/* to undo what certain browsers could do */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+
+
+/* .row {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+} */
+
+/* .custom-container {
+    margin: 0;
+    padding: 0;
+} */
+
+/* animated color changing background */
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #ff9797, #7f1212);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    z-index: 0;
+}
+/* animation here */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* styling for the particles */
+#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* this is here to move the particles behind everythingelse */
+    pointer-events: none; /* without this, the icons are unclickable because the particles would block them */
+}
+
+/* fading in animation */
+.fading-in {
+    font-size: 24px;
+    opacity: 0;
+    animation: fadeIn 2.5s ease-in-out forwards;
+}
+/* fading in animation for the icons, not changing their size */
+.fading-in-icons {
+    opacity: 0;
+    animation: fadeIn 2.5s ease-in-out forwards;
+}
+/* animation for the fading */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* #greeting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 40vw;
+}
+
+#introduction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: -50vh;
+    width: 50vw;
+} */
+
+/* #profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 50vw;
+} */
+
+/* LEFT SIDE OF THE SCREEN STYLING */
+.left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*
+    padding: 10px; /* not needed as far as i can see */
+}
+/* THE "Hi!" */
+.left-content h1 {
+    /* white-space: nowrap; */
+    font-size: 75px;
+    /* text-align: left; */
+    font-weight: bold;
+    /* margin-right: 60%; */
+    margin-bottom: 30px;
+    /* padding-right: 30px; */
+}
+/* THE INTRODUCTION */
+.left-content p {
+    /* margin-right: 60%; */
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* RIGHT SIDE OF THE SCREEN STYLING */
+.right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* position: relative;
+    z-index: 2; */
+    animation: bounceIn 1.5s ease-out; /* animation needed for the photo */
+}
+/* bouncing animation for the photo */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(30%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* adjusting the profile photo */
+.right-content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+    max-width: 75%;
+    height: auto;
+    border-radius: 25%;
+}
+
+/* .right-content h1 {
+    font-size: 75px;
+    font-weight: bold;
+    margin-bottom: 30px;
+} */
+
+/* adjusting the icons and their color */
+.social-icon {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #000000; /* the color of em */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+/* the color of the 1st icon which is linkedin */
+.social-icon:nth-of-type(1):hover {
+    color: #0077b5; 
+}
+/* the color of the 2nd icon which is github */
+.social-icon:nth-of-type(2):hover {
+    color: #c9510c; 
+}
+/* the color of the 3rd icon which is handshake */
+.social-icon:nth-of-type(3):hover {
+    color: #d2fa4b; 
+}
+
+/* resume button */
+.btn-custom {
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 20px;
+    background-color: #7f1212;
+    color: #ff9797; /* text color */
+    border: 2px solid #ff9797;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+/* inherit the colors of the previous section right above */
+.btn-custom a {
+    text-decoration: none;
+    color: inherit;
+}
+/* color change when cursor is over button */
+.btn-custom:hover {
+    background-color: #ff9797;
+    color: #7f1212; /* text color */
+    border-color: #7f1212;
+    border-radius: 10px; /* how thick the border is */
+
+}
+
+/* need this so the pretend writing cursor stops right after the "Hi!" */
+.typing-container {
+    display: inline-block;
+}
+/* ANIMATION TO CREATE THE TYPING EFFECT */
+.typing-animation {
+    overflow: hidden; /* hiding overflow to create the typing effect */
+    border-right: 2px solid #ff9797; /* cursor effect, with color */
+    white-space: nowrap; /* keeping the text in one line, not necessary for short sentence */
+    font-size: 24px; /* font size */
+    margin: 0 auto; /* centering the text */
+    letter-spacing: 3px; /* letter spacing */
+    animation: typing 0.5s steps(5, end), blink-caret 0.5s step-end infinite; /* animation */
+}
+/* typing effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+/* blinking cursor effect */
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #ff9797; 
+    }
+}
